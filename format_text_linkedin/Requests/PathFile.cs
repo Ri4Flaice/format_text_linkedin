@@ -6,6 +6,7 @@
         {
             Console.Write("Specify the file path: ");
             string path = Console.ReadLine();
+            path = path.Trim('"');
 
             return path;
         }

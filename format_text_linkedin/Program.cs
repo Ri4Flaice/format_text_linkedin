@@ -1,9 +1,7 @@
-﻿using format_text_linkedin.Requests;
-
-class Program
+﻿class Program
 {
     public static void Main(string[] args)
     {
-        
+
     }
 }
