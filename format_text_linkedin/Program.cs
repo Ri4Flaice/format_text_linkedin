@@ -7,7 +7,8 @@ class Program
     {
         PathFile pathFile = new PathFile();
         string path = pathFile.GetFilePath();
-        string outputPath = @"C:\Users\AdreN\OneDrive\Рабочий стол\output.txt";
+        string currentDirectory = Environment.CurrentDirectory;
+        string outputPath = $@"{currentDirectory}\output.txt";
 
         FormatLine formatLine = new FormatLine(path, outputPath);
         formatLine.FormattingLinesInTextFile();
