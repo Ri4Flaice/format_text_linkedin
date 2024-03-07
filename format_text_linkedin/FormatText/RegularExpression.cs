@@ -21,6 +21,9 @@ namespace format_text_linkedin.FormatText
         {
             string text = File.ReadAllText(path);
 
+            text = Regex.Replace(text, @"^-\s+\[.+?\]\s+", "", RegexOptions.Multiline);
+            text = Regex.Replace(text, @"^- ", "", RegexOptions.Multiline);
+
             text = DeleteLineBreak(text);
             text = DeleteSpace(text, @"[ ]{4}");
             text = DeleteSpace(text, @"[ ]{3}");
