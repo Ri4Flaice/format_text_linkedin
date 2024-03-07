@@ -11,7 +11,10 @@ namespace format_text_linkedin.FormatText
 
         public bool IsTimestamp(string line)
         {
-            return Regex.IsMatch(line, @"^\d{2}:\d{2}:\d{2},\d{2} --> \d{2}:\d{2}:\d{2},\d{2}$");
+            return Regex.IsMatch(line, @"^\d{2}:\d{2}:\d{2},\d{2} --> \d{2}:\d{2}:\d{2},\d{2}$") || 
+                Regex.IsMatch(line, @"^\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{3}$") ||
+                Regex.IsMatch(line, @"^\d{2}:\d{2}:\d{2},\d{2} --> \d{2}:\d{2}:\d{2},\d{3}$") ||
+                Regex.IsMatch(line, @"^\d{2}:\d{2}:\d{2},\d{3} --> \d{2}:\d{2}:\d{2},\d{2}$");
         }
 
         public void ReplaceText(string path)
