@@ -18,7 +18,7 @@ namespace format_text_linkedin.WorkTextFile
             _unnecessaryWords = new UnnecessaryWords();
         }
 
-        public void DeleteWords()
+        public bool DeleteWords()
         {
             _lengthText = _length.GetLengthText(_outputPath);
 
@@ -35,11 +35,14 @@ namespace format_text_linkedin.WorkTextFile
                     _unnecessaryWords.DeleteUnnecessaryWords(_outputPath);
                     _lengthText = _length.GetLengthText(_outputPath);
                     Console.WriteLine($"Number of characters: {_lengthText}");
+                    return true;
                 }
+
+                return false;
             }
             else
             {
-                Console.WriteLine($"Number of characters: {_lengthText}");
+                return false;
             }
         }
     }

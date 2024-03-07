@@ -5,15 +5,26 @@ class Program
 {
     public static void Main(string[] args)
     {
-        PathFile pathFile = new PathFile();
-        string path = pathFile.GetFilePath();
-        string currentDirectory = Environment.CurrentDirectory;
-        string outputPath = $@"{currentDirectory}\output.txt";
+        while (true)
+        {
+            PathFile pathFile = new PathFile();
+            string path = pathFile.GetFilePath();
+            string currentDirectory = Environment.CurrentDirectory;
+            string outputPath = $@"{currentDirectory}\output.txt";
 
-        FormatLine formatLine = new FormatLine(path, outputPath);
-        formatLine.FormattingLinesInTextFile();
+            FormatLine formatLine = new FormatLine(path, outputPath);
+            formatLine.FormattingLinesInTextFile();
 
-        SizeText sizeText = new SizeText(outputPath);
-        sizeText.DeleteWords();
+            bool needShortening = true;
+
+            while (needShortening)
+            {
+                SizeText sizeText = new SizeText(outputPath);
+                needShortening = sizeText.DeleteWords();
+            }
+
+            Console.ReadLine();
+            Console.Clear();
+        }
     }
 }
